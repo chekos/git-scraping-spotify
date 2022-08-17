@@ -131,7 +131,7 @@ base = (
 )
 
 text = base.mark_text().encode(
-    text=alt.Text("count()"), color=alt.ColorValue("#2b2b2b"), size=alt.SizeValue(15)
+    text=alt.Text("count()"), color=alt.ColorValue("#c7c7c7"), size=alt.SizeValue(15)
 )
 
 final = base + text
