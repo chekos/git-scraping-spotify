@@ -5,7 +5,6 @@
 
 import altair as alt
 import pandas as pd
-import pytz
 
 def streamlit_theme():
     font = "IBM Plex Mono"
@@ -113,9 +112,6 @@ def streamlit_theme():
 alt.themes.register("streamlit", streamlit_theme)
 alt.themes.enable("streamlit")
 
-
-utc_tz = pytz.timezone("UTC")
-pst_tz = pytz.timezone("US/Pacific")
 
 data = pd.read_csv("tracks.csv")
 data["played_at"] = pd.to_datetime(data["played_at"]).dt.tz_convert("US/Pacific")
