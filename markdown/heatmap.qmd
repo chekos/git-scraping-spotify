@@ -1,5 +1,6 @@
 ```{python}
 #| echo: false
+#| output: true
 
 import altair as alt
 import pandas as pd
