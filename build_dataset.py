@@ -110,5 +110,5 @@ for item in tracks_played:
     pd.DataFrame(tracks_holder)
     .drop_duplicates()
     .sort_values(by="played_at")
-    .to_csv("tracks.csv", index=False, encoding="utf-8")
+    .to_csv("markdown/tracks.csv", index=False, encoding="utf-8")
 )
