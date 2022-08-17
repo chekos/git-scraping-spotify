@@ -1,0 +1,63 @@
+name: Render documents and produce screenshots
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "markdown/**.qmd"
+
+jobs:
+  scheduled:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check out repo
+      uses: actions/checkout@v3
+    - name: Set up Quarto
+      uses: quarto-dev/quarto-actions/setup@v2
+    - run: |-
+        quarto --version 
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: 3.8
+        cache: pip
+    - name: Cache playwright 
+      uses: actions/cache@v3
+      with: 
+        path: ~/.cache/ms-playwright/
+        key: ${{ runner.os }}-browsers
+    - name: Cache Oxipng
+      uses: actions/cache@v3
+      with:
+        path: ~/.cargo/
+        key: ${{ runner.os }}-cargo
+    - name: Install Oxipng if it is not installed
+      run: |
+        which oxipng || cargo install oxipng
+    - name: Install python dependencies
+      run: |-
+        pip install -r requirements.txt
+        playwright install chromium
+    - name: Render documents
+      run: |-
+        git clone https://github.com/chekos/spotify-git-scraping
+        python3 build_dataset.py
+        rm -rf spotify-git-scraping
+        quarto render markdown/ --to html
+        shot-scraper pages/heatmap.html -o output/heatmap.png --wait-for 'document.querySelector(".chart-wrapper")' --wait 2000 --width 900 
+    - name: Optimize PNGs
+      run: |-
+        oxipng -o 4 -i 0 --strip safe output/*.png
+    - name: Commit and push if it changed 
+      run: |-
+        git config user.name "Automated"
+        git config user.email "actions@users.noreply.github.com"
+        git add -A
+        timestamp=$(date -u)
+        git commit -m "Latest data: ${timestamp}" || exit 0
+        echo '### Changed files' >> $GITHUB_STEP_SUMMARY
+        echo '```' >> $GITHUB_STEP_SUMMARY
+        git show --name-only --format=tformat: >> $GITHUB_STEP_SUMMARY
+        echo '```' >> $GITHUB_STEP_SUMMARY
+        git pull --rebase
+        git push

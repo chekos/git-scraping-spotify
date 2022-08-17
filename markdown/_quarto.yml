@@ -1,0 +1,9 @@
+project:
+  execute-dir: project
+  output-dir: ../pages
+
+self-contained: true
+format:
+    html:
+        css: css/altair.css
+jupyter: python3

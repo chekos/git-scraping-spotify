@@ -1,0 +1,30 @@
+```{python}
+#| echo: false
+
+import altair as alt
+import pandas as pd
+import pytz
+
+utc_tz = pytz.timezone("UTC")
+pst_tz = pytz.timezone("US/Pacific")
+
+data = pd.read_csv("tracks.csv")
+data["played_at"] = pd.to_datetime(data["played_at"]).dt.tz_convert("US/Pacific")
+
+base = (
+    alt.Chart(data)
+    .mark_rect()
+    .encode(
+        alt.X("hours(played_at):O", title=""),
+        alt.Y("day(played_at):O", title="", sort = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]),
+        alt.Color("count():Q", scale=alt.Scale(scheme="greenblue"), legend=None),
+    )
+)
+
+text = base.mark_text().encode(
+    text=alt.Text("count()"), color=alt.ColorValue("#2b2b2b"), size=alt.SizeValue(15)
+)
+
+final = base + text
+final.properties(width='container', height=400, title='Number of songs played')
+```

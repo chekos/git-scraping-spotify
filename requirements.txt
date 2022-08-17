@@ -1,0 +1,4 @@
+altair==4.2.0
+gitpython==3.1.27
+jupyter==1.0.0
+shot-scraper==0.14.3
