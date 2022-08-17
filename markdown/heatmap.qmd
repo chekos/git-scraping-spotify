@@ -1,3 +1,5 @@
+# Streaming history
+
 ```{python}
 #| echo: false
 
@@ -133,5 +135,5 @@ text = base.mark_text().encode(
 )
 
 final = base + text
-final.properties(width='container', height=400, title='Number of songs played')
+final.properties(width='container', height=400,)
 ```
