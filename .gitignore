@@ -1,6 +1,7 @@
 # Local
 .vscode/
 .quarto/
+spotify-git-scraping/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
