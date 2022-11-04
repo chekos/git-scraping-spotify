@@ -1,0 +1,24 @@
+databases:
+  tracks:
+    queries:
+      artist-played-times:
+        sql: |-
+          select
+            date(played_at) date_played_at,
+            album_artist_name,
+            count(*) as n_played
+          from
+            tracks
+          where
+            "track_artists" like case
+              :artist
+              when '' then '%fntxy%'
+              else '%' || :artist || '%'
+            end
+          group by
+            1,2
+          order by
+            rowid
+        fragment: g.mark=line&g.x_column=date_played_at&g.x_type=ordinal&g.y_column=n_played&g.y_type=quantitative&g.color_column=album_artist_name
+        hide_sql: true
+        title: Number of tracks with artist played by day
