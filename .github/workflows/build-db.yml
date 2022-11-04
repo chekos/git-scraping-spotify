@@ -1,10 +1,10 @@
 name: Build SQLite db
 
 on:
-  workflow_dispatch:
   push:
     paths:
       - "markdown/*.csv"
+  workflow_dispatch:
 
 jobs:
   scheduled:
