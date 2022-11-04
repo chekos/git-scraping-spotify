@@ -22,7 +22,8 @@ jobs:
         pip install -r requirements.txt
     - name: Build db
       run: |-
-        csvs-to-sqlite markdown/tracks.csv tracks.db
+        csvs-to-sqlite markdown/tracks.csv tracks.db --replace-tables
+        sqlite-utils enable-fts tracks.db tracks track_artists track_name album_name album_artist_name --replace
     - name: Commit and push if it changed 
       run: |-
         git config user.name "Automated"
