@@ -20,9 +20,6 @@ jobs:
     - name: Install python dependencies
       run: |-
         pip install -r requirements.txt
-    - run: git clone https://github.com/chekos/spotify-git-scraping
-    - run: python3 build_dataset.py
-    - run: rm -rf spotify-git-scraping
     - name: Build db
       run: |-
         csvs-to-sqlite markdown/tracks.csv tracks.db
