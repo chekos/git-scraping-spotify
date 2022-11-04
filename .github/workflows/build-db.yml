@@ -1,0 +1,41 @@
+name: Build SQLite db
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "markdown/**.csv"
+
+jobs:
+  scheduled:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check out repo
+      uses: actions/checkout@v3
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: 3.8
+        cache: pip
+    - name: Install python dependencies
+      run: |-
+        pip install -r requirements.txt
+    - run: git clone https://github.com/chekos/spotify-git-scraping
+    - run: python3 build_dataset.py
+    - run: rm -rf spotify-git-scraping
+    - name: Build db
+      run: |-
+        csvs-to-sqlite markdown/tracks.csv tracks.db
+    - name: Commit and push if it changed 
+      run: |-
+        git config user.name "Automated"
+        git config user.email "actions@users.noreply.github.com"
+        git add -A
+        timestamp=$(date -u)
+        git commit -m "Latest data: ${timestamp}" || exit 0
+        echo '### Changed files' >> $GITHUB_STEP_SUMMARY
+        echo '```' >> $GITHUB_STEP_SUMMARY
+        git show --name-only --format=tformat: >> $GITHUB_STEP_SUMMARY
+        echo '```' >> $GITHUB_STEP_SUMMARY
+        git pull --rebase
+        git push
