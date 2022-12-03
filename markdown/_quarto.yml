@@ -1,4 +1,5 @@
 project:
+  type: website
   execute-dir: project
   output-dir: ../pages
 
@@ -6,4 +7,23 @@ self-contained: true
 format:
     html:
         css: css/altair.css
+        code-fold: true
+
 jupyter: python3
+
+website: 
+  title: "My Spotify Data"
+  page-navigation: true
+  navbar:
+    background: dark
+    search: true
+    left:
+      - href: index.qmd
+        text: Home
+      - heatmap.qmd
+      - trends.qmd
+
+execute: 
+  error: false
+  warning: false
+  echo: false

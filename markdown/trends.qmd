@@ -1,0 +1,61 @@
+# Listening trends
+
+{{< include _data.qmd >}}
+
+```{python}
+
+voi = [
+    'played_at',
+    'track_name', 
+    'album_artists',
+    'album_artist_name',
+]
+
+working_df = data[voi].copy()
+working_df['played_date'] = working_df['played_at'].dt.date
+working_df['played_date'] = pd.to_datetime(working_df["played_date"])
+working_df['artists'] = working_df['album_artists'].str.split(" & ")
+working_df = working_df.explode('artists')
+working_df = working_df.groupby(['artists', 'track_name', 'played_date',], as_index = False)[['played_at']].count()
+working_df['cumcount'] = working_df.groupby(["artists", "track_name"], as_index = False)['played_at'].cumsum()
+working_df.columns = ['artist', 'track', 'played_date', 'n_plays', 'cumcount']
+
+artists_names = list(working_df['artist'].value_counts().index)
+
+input_dropdown = alt.binding_select(options=artists_names, name="Artist")
+selection = alt.selection_single(
+    fields=["artist"], bind=input_dropdown, init={"artist": "Fntxy"}
+)
+
+base = alt.Chart(working_df)
+
+lines = base.mark_line(interpolate="step-before", opacity=0.5, strokeWidth=1).encode(
+    x=alt.X("played_date", title=""),
+    y=alt.Y("cumcount", title=""),
+    color=alt.Color("track", legend=None, scale=alt.Scale(range=["#232323"])),
+    tooltip=["artist", "track", "played_date", "cumcount"],
+)
+
+labels = base.mark_text(
+    dx=5, align="left", baseline="middle", fontSize=12, fontStyle="bold"
+).encode(
+    x="max(played_date)",
+    y="max(cumcount)",
+    text=alt.Text("track"),
+)
+
+final = (
+    alt.layer(lines, labels)
+    .add_selection(selection)
+    .transform_filter(selection)
+    .configure_view(strokeWidth=0)
+    .configure_axisBottom(grid=False)
+)
+
+final.properties(
+    width="container",
+    height=600,
+)
+
+
+```
