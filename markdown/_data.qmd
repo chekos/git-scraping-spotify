@@ -1,0 +1,49 @@
+```{python}
+import altair as alt
+import pandas as pd
+from prepare import streamlit_theme
+
+alt.themes.register("streamlit", streamlit_theme)
+alt.themes.enable("streamlit")
+
+data = pd.read_csv("tracks.csv")
+data["played_at"] = pd.to_datetime(data["played_at"]).dt.tz_convert("US/Pacific")
+
+voi = [
+    "played_at",
+    "track_artists",
+    "track_name",
+    "album_name",
+    "album_artist_name",
+    "album_artists",
+    "album_release_date",
+    "album_release_date_precision",
+    "album_total_tracks",
+    "track_track_number",
+    "track_popularity",
+    "track_duration_ms",
+    "track_explicit",
+    "track_spotify_url",
+    "track_preview_url",
+    "track_uri",
+    "track_disc_number",
+    "track_href",
+    "track_id",
+    "track_is_local",
+    "track_external_ids_isrc",
+    "track_artists_uris",
+    "album_spotify_url",
+    "album_uri",
+    "album_id",
+    "album_href",
+    "album_image_640x640_url",
+    "album_image_300x300_url",
+    "album_image_64x64_url",
+    "album_artist_spotify_url",
+    "album_artist_href",
+    "album_artist_id",
+    "album_artist_uri",
+]
+
+data = data[voi]
+```
