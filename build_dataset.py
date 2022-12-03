@@ -87,6 +87,7 @@ for item in tracks_played:
     current_item["album_id"] = album["id"]
     current_item["album_href"] = album["href"]
     current_item["album_release_date_precision"] = album["release_date_precision"]
+    current_item["album_type"] = album["album_type"]
     current_item["album_total_tracks"] = album["total_tracks"]
     for image in album["images"]:
         height = image["height"]
