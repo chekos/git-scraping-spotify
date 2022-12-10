@@ -1,13 +1,11 @@
 ```{python}
 import altair as alt
 import pandas as pd
-from prepare import streamlit_theme
+from prepare import streamlit_theme, read_tracks, song_df
+from charts import listening_chart
 
 alt.themes.register("streamlit", streamlit_theme)
 alt.themes.enable("streamlit")
-
-data = pd.read_csv("tracks.csv")
-data["played_at"] = pd.to_datetime(data["played_at"]).dt.tz_convert("US/Pacific")
 
 voi = [
     "played_at",
@@ -45,5 +43,6 @@ voi = [
     "album_artist_uri",
 ]
 
-data = data[voi]
+data = read_tracks("tracks.csv")[voi]
+songs = song_df("tracks.csv")
 ```

@@ -1,3 +1,30 @@
 # My Spotify Data
 
-lorem ipsum
+{{< include _data.qmd >}}
+
+```{python}
+from prepare import find_top_artists
+
+charts = []
+for artist in find_top_artists(songs, 5)['artist']:
+    charts.append(listening_chart(artist))
+
+charts[0]
+```
+
+```{python}
+charts[1]
+```
+
+```{python}
+charts[2]
+```
+
+```{python}
+charts[3]
+```
+
+```{python}
+charts[4]
+```
+
