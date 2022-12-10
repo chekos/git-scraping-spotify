@@ -4,7 +4,7 @@
 spotify-git-scraping/
 _data_files/
 site_libs/
-sandbox.ipynb
+sandbox/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
