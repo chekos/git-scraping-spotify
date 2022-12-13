@@ -107,9 +107,8 @@ for item in tracks_played:
     tracks_holder.append(current_item)
 
 
-(
-    pd.DataFrame(tracks_holder)
-    .drop_duplicates()
-    .sort_values(by="played_at")
-    .to_csv("markdown/tracks.csv", index=False, encoding="utf-8")
-)
+data = pd.DataFrame(tracks_holder).drop_duplicates().sort_values(by="played_at")
+data.to_csv("markdown/tracks.csv", index=False, encoding="utf-8")
+data["artists"] = data["track_artists"].str.split(" & ")
+data = data.explode("artists")
+data.to_csv("markdown/tracks_long.csv", index=False, encoding="utf-8")
