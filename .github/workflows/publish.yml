@@ -1,0 +1,33 @@
+# to move to in the future
+
+name: Publish to gh-pages
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write 
+    steps:
+    - name: Check out repo
+      uses: actions/checkout@v3
+    - name: Set up Quarto
+      uses: quarto-dev/quarto-actions/setup@v2
+    - run: |-
+        quarto --version 
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: "3.10"
+        cache: pip
+    - name: Install python dependencies
+      run: |-
+        pip install -r requirements.txt
+    - name: Render and Publish
+      uses: quarto-dev/quarto-actions/publish@v2
+      with:
+        target: gh-pages
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
