@@ -1,4 +1,4 @@
-name: Build SQLite db
+name: Build csv and SQLite db
 
 on:
   schedule:
