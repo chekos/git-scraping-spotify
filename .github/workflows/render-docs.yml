@@ -1,4 +1,4 @@
-name: Render documents and produce screenshots
+name: Render documents
 
 on:
   workflow_dispatch:
