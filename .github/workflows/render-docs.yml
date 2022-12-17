@@ -5,6 +5,7 @@ on:
   push:
     paths:
       - "markdown/**.qmd"
+      - "markdown/tracks.csv"
 
 jobs:
   render-docs:
