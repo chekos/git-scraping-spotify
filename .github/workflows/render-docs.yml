@@ -6,6 +6,8 @@ on:
     paths:
       - "markdown/**.qmd"
       - "markdown/tracks.csv"
+  schedule:
+    - cron: '47 11 * * *'
 
 jobs:
   render-docs:
