@@ -44,6 +44,9 @@ for item in recently_played_jsons:
     if len(item["items"]) > 0:
         tracks_played.extend(item["items"])
 
+_unique = {item["played_at"]: item for item in tracks_played}
+tracks_played = [track for track in _unique.values()]
+
 tracks_holder = []
 for item in tracks_played:
     current_item = {}
