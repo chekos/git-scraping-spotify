@@ -7,17 +7,17 @@
     "text": "My Spotify Data"
   },
   {
-    "objectID": "heatmap.html",
-    "href": "heatmap.html",
-    "title": "My Spotify Data",
-    "section": "",
-    "text": "Streaming history"
-  },
-  {
     "objectID": "trends.html",
     "href": "trends.html",
     "title": "My Spotify Data",
     "section": "",
     "text": "Listening trends"
+  },
+  {
+    "objectID": "heatmap.html",
+    "href": "heatmap.html",
+    "title": "My Spotify Data",
+    "section": "",
+    "text": "Streaming history"
   }
 ]
