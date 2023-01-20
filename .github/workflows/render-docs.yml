@@ -5,9 +5,10 @@ on:
   push:
     paths:
       - "markdown/**.qmd"
-      - "markdown/tracks.csv"
-  schedule:
-    - cron: '47 11 * * *'
+  workflow_run:
+    workflows: [Build csv and SQLite db]
+    types:
+      - completed
 
 jobs:
   render-docs:
