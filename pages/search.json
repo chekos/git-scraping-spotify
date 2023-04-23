@@ -18,6 +18,6 @@
     "href": "heatmap.html",
     "title": "My Spotify Data",
     "section": "",
-    "text": "Streaming history"
+    "text": "Streaming history\n\n\nMaxRowsError: The number of rows in your dataset is greater than the maximum allowed (5000). For information on how to plot larger datasets in Altair, see the documentation\n\n\nalt.LayerChart(...)"
   }
 ]
