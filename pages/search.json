@@ -4,20 +4,20 @@
     "href": "index.html",
     "title": "My Spotify Data",
     "section": "",
-    "text": "My Spotify Data\n\n\nMaxRowsError: The number of rows in your dataset is greater than the maximum allowed (5000). For information on how to plot larger datasets in Altair, see the documentation\n\n\nalt.VConcatChart(...)\n\n\n\n\nMaxRowsError: The number of rows in your dataset is greater than the maximum allowed (5000). For information on how to plot larger datasets in Altair, see the documentation\n\n\nalt.VConcatChart(...)\n\n\n\n\nMaxRowsError: The number of rows in your dataset is greater than the maximum allowed (5000). For information on how to plot larger datasets in Altair, see the documentation\n\n\nalt.VConcatChart(...)\n\n\n\n\nMaxRowsError: The number of rows in your dataset is greater than the maximum allowed (5000). For information on how to plot larger datasets in Altair, see the documentation\n\n\nalt.VConcatChart(...)\n\n\n\n\nMaxRowsError: The number of rows in your dataset is greater than the maximum allowed (5000). For information on how to plot larger datasets in Altair, see the documentation\n\n\nalt.VConcatChart(...)"
+    "text": "MaxRowsError: The number of rows in your dataset is greater than the maximum allowed (5000). For information on how to plot larger datasets in Altair, see the documentation\n\n\nalt.VConcatChart(...)\n\n\n\n\nMaxRowsError: The number of rows in your dataset is greater than the maximum allowed (5000). For information on how to plot larger datasets in Altair, see the documentation\n\n\nalt.VConcatChart(...)\n\n\n\n\nMaxRowsError: The number of rows in your dataset is greater than the maximum allowed (5000). For information on how to plot larger datasets in Altair, see the documentation\n\n\nalt.VConcatChart(...)\n\n\n\n\nMaxRowsError: The number of rows in your dataset is greater than the maximum allowed (5000). For information on how to plot larger datasets in Altair, see the documentation\n\n\nalt.VConcatChart(...)\n\n\n\n\nMaxRowsError: The number of rows in your dataset is greater than the maximum allowed (5000). For information on how to plot larger datasets in Altair, see the documentation\n\n\nalt.VConcatChart(...)"
   },
   {
     "objectID": "trends.html",
     "href": "trends.html",
-    "title": "My Spotify Data",
+    "title": "Listening trends",
     "section": "",
-    "text": "Listening trends\n\n\nMaxRowsError: The number of rows in your dataset is greater than the maximum allowed (5000). For information on how to plot larger datasets in Altair, see the documentation\n\n\nalt.LayerChart(...)"
+    "text": "MaxRowsError: The number of rows in your dataset is greater than the maximum allowed (5000). For information on how to plot larger datasets in Altair, see the documentation\n\n\nalt.LayerChart(...)"
   },
   {
     "objectID": "heatmap.html",
     "href": "heatmap.html",
-    "title": "My Spotify Data",
+    "title": "Streaming history",
     "section": "",
-    "text": "Streaming history\n\n\nMaxRowsError: The number of rows in your dataset is greater than the maximum allowed (5000). For information on how to plot larger datasets in Altair, see the documentation\n\n\nalt.LayerChart(...)"
+    "text": "MaxRowsError: The number of rows in your dataset is greater than the maximum allowed (5000). For information on how to plot larger datasets in Altair, see the documentation\n\n\nalt.LayerChart(...)"
   }
 ]
