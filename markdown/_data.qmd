@@ -7,6 +7,8 @@ from charts import listening_chart
 alt.themes.register("streamlit", streamlit_theme)
 alt.themes.enable("streamlit")
 
+alt.data_transformers.disable_max_rows()
+
 voi = [
     "played_at",
     "track_artists",
