@@ -1,5 +1,12 @@
 [
   {
+    "objectID": "heatmap.html",
+    "href": "heatmap.html",
+    "title": "Streaming history",
+    "section": "",
+    "text": "MaxRowsError: The number of rows in your dataset is greater than the maximum allowed (5000). For information on how to plot larger datasets in Altair, see the documentation\n\n\nalt.LayerChart(...)"
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "My Spotify Data",
@@ -10,13 +17,6 @@
     "objectID": "trends.html",
     "href": "trends.html",
     "title": "Listening trends",
-    "section": "",
-    "text": "MaxRowsError: The number of rows in your dataset is greater than the maximum allowed (5000). For information on how to plot larger datasets in Altair, see the documentation\n\n\nalt.LayerChart(...)"
-  },
-  {
-    "objectID": "heatmap.html",
-    "href": "heatmap.html",
-    "title": "Streaming history",
     "section": "",
     "text": "MaxRowsError: The number of rows in your dataset is greater than the maximum allowed (5000). For information on how to plot larger datasets in Altair, see the documentation\n\n\nalt.LayerChart(...)"
   }
