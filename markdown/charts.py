@@ -1,6 +1,8 @@
 import altair as alt
 from prepare import song_df 
 
+alt.data_transformers.disable_max_rows()
+
 songs = song_df("tracks.csv")
 
 def listening_chart(artist="La Banda Baston", df=songs):
