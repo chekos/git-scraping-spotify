@@ -107,7 +107,7 @@ def streamlit_theme():
 
 def read_tracks(filepath):
     data = read_csv(filepath)
-    data["played_at"] = to_datetime(data["played_at"]).dt.tz_convert("US/Pacific")
+    data["played_at"] = to_datetime(data["played_at"], utc = True).dt.tz_convert("US/Pacific")
     data["played_date"] = data["played_at"].dt.date
     data["played_date"] = to_datetime(data["played_date"])
 
