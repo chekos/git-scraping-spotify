@@ -41,7 +41,7 @@ jobs:
         playwright install chromium
     - name: Take heatmap screenshot
       run: |-
-        shot-scraper pages/heatmap.html -o output/heatmap.png --wait 4000 -s '[id^="altair-viz-"]' --padding 20 --retina
+        shot-scraper pages/heatmap.html -o output/heatmap.png --wait 4000 -s '#title-block-header' -s '[id^="altair-viz-"]' --padding 20 --retina
     - name: Optimize PNGs
       run: |-
         oxipng -o 4 -i 0 --strip safe output/*.png
