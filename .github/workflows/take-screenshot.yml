@@ -41,7 +41,7 @@ jobs:
         playwright install chromium
     - name: Take heatmap screenshot
       run: |-
-        shot-scraper pages/heatmap.html -o output/heatmap.png --wait 14000 --wait-for 'document.querySelector(".chart-wrapper")' -s '#streaming-history' --padding 20 --retina
+        shot-scraper pages/heatmap.html -o output/heatmap.png --wait 14000 -s '#streaming-history' --padding 20 --retina --log-request - 
     - name: Optimize PNGs
       run: |-
         oxipng -o 4 -i 0 --strip safe output/*.png
