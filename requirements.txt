@@ -11,4 +11,4 @@ shot-scraper==1.2
 sqlite-utils==3.30
 uri-template==1.2.0
 webcolors==1.12
-pandas<2.0.0
+playwright==1.35.0
