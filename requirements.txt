@@ -12,4 +12,4 @@ sqlite-utils==3.30
 uri-template==1.2.0
 webcolors==1.12
 playwright==1.35.0
-pandas<=2.0.0
+pandas<2.0.0
