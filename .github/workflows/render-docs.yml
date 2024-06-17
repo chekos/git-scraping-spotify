@@ -5,6 +5,7 @@ on:
   push:
     paths:
       - "markdown/**.qmd"
+      - "markdown/**.py"
   workflow_run:
     workflows: [Build csv and SQLite db]
     types:
