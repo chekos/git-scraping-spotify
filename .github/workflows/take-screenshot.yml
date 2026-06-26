@@ -2,10 +2,6 @@ name: Take screenshots
 
 on:
   workflow_dispatch:
-  workflow_run:
-    workflows: [Render documents]
-    types:
-    - completed
 
 jobs:
   take-screenshot:

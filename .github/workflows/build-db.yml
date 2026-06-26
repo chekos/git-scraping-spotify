@@ -1,8 +1,6 @@
 name: Build csv and SQLite db
 
 on:
-  schedule:
-    - cron: '13 */8 * * *'
   workflow_dispatch:
 
 jobs:
